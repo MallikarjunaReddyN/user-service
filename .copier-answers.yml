@@ -1,0 +1,18 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+CI: 'No'
+_commit: 5c00e2f
+_src_path: https://github.com/MallikarjunaReddyN/copier-springboot.git
+created_by: Arjun
+db: MySQL
+db_name: user-service
+docker: 'No'
+entity: User
+group_id: in.arjun
+is_db_required: 'Yes'
+project: Maven
+project_description: This is a Spring Boot User Application
+project_name: User Service
+project_package: userservice
+sca: 'No'
+server_port: 8080
+version: 0.0.1

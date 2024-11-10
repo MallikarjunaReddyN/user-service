@@ -1,0 +1,16 @@
+services:
+  mysql:
+    image: 'mysql:latest'
+    environment:
+      - 'MYSQL_DATABASE=user-service'
+      - 'MYSQL_PASSWORD=mysql@123'
+      - 'MYSQL_ROOT_PASSWORD=root@123'
+      - 'MYSQL_USER=mysql'
+    ports:
+      - "3307:3306"
+    volumes:
+      - userservice-dbdata:/var/lib/mysql 
+
+volumes:
+  userservice-dbdata:
+    driver: local

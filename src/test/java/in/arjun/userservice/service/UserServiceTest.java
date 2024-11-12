@@ -30,8 +30,10 @@ class UserServiceTest {
 
     @Test
     void addUser() {
-        when(userRepository.findByEmail(anyString())).thenReturn(Optional.empty());
-        when(userRepository.save(any(User.class))).thenReturn(new User("123", "Raju", "raju@gmail.com", "65543323"));
+        when(userRepository.findByEmail(anyString()))
+                .thenReturn(Optional.empty());
+        when(userRepository.save(any(User.class)))
+                .thenReturn(new User("123", "Raju", "raju@gmail.com", "65543323"));
         User user = userService.addUser(new AddUserRequest("Raju", "raju@gmail.com", "65543323"));
         assertEquals("Raju", user.getName());
         assertEquals("raju@gmail.com", user.getEmail());
@@ -40,10 +42,11 @@ class UserServiceTest {
 
     @Test
     void addUserWithExists() {
-        when(userRepository.findByEmail(anyString())).thenReturn(Optional.of(new User("123", "Raju", "raju@gmail.com", "65543323")));
+        when(userRepository.findByEmail(anyString()))
+                .thenReturn(Optional.of(new User("123", "Raju", "raju@gmail.com", "65543323")));
         try {
             User user = userService.addUser(new AddUserRequest("Raju", "raju@gmail.com", "65543323"));
-            fail("Should test");
+            fail("Should fail test");
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());
         }
